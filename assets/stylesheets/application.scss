@@ -1,3 +1,44 @@
+@import "cards";
+
 body {
-  font-family: Helvetica;
+  background-color: white;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.container > div {
+  margin-top: 20px;
+  display: flex;
+}
+
+.map-container {
+  height: 100vh;
+  width: 40%;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
+
+.flat-list {
+  padding-left: 10px;
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .card {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.marker {
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border-radius: 50%;
 }

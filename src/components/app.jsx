@@ -14,7 +14,7 @@ class App extends Component {
     };
   }
 
-  defaultCenter() {
+  center() {
     return {
       lat: this.state.selectedFlat.lat,
       lng: this.state.selectedFlat.lng
@@ -26,7 +26,7 @@ class App extends Component {
       <div>
         <FlatList flats={this.state.flats} selectedFlat={this.state.selectedFlat} />
         <div className="map-container">
-          <GoogleMapReact defaultCenter={this.defaultCenter()} defaultZoom={12}>
+          <GoogleMapReact defaultCenter={this.center()} defaultZoom={12}>
             <Marker lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng} />
           </GoogleMapReact>
         </div>

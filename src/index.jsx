@@ -7,4 +7,4 @@ import '../assets/stylesheets/application.scss';
 import App from './components/app';
 
 // render an instance of the component in the DOM
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('#root'));

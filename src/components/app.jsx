@@ -21,10 +21,18 @@ class App extends Component {
     };
   }
 
+  selectFlat = (index) => {
+    this.setState({ selectedFlat: flats[index] });
+  }
+
   render() {
     return (
       <div>
-        <FlatList flats={this.state.flats} selectedFlat={this.state.selectedFlat} />
+        <FlatList
+          flats={this.state.flats}
+          selectedFlat={this.state.selectedFlat}
+          selectFlat={this.selectFlat}
+        />
         <div className="map-container">
           <GoogleMapReact defaultCenter={this.center()} defaultZoom={12}>
             <Marker lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng} />

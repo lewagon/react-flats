@@ -18,6 +18,7 @@ export default function App() {
 
   const selectFlat = index => setSelectedFlat(flats[index]);
 
+  const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API ? {key: process.env.REACT_APP_GOOGLE_MAPS_API} : null
   return (
     <div className="container">
       <FlatList
@@ -26,7 +27,11 @@ export default function App() {
         selectFlat={selectFlat}
       />
       <div className="map-container">
-        <GoogleMapReact defaultCenter={center()} defaultZoom={12}>
+        <GoogleMapReact 
+          bootstrapURLKeys={API_KEY} 
+          defaultCenter={center()} 
+          defaultZoom={12}
+        >
           <Marker lat={selectedFlat.lat} lng={selectedFlat.lng} />
         </GoogleMapReact>
       </div>

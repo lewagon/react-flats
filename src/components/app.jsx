@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-import flatsList from '../../data/flats';
+import flatsList from '../data/flats';
 import FlatList from './flat_list';
 import Marker from './marker';
 

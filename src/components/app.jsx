@@ -19,7 +19,7 @@ export default function App() {
   const selectFlat = index => setSelectedFlat(flats[index]);
 
   return (
-    <div>
+    <div className="container">
       <FlatList
         flats={flats}
         selectedFlat={selectedFlat}

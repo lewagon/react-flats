@@ -8,9 +8,6 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-}
-
-.container > div {
   margin-top: 20px;
   display: flex;
 }
@@ -29,11 +26,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  .card {
-    width: calc(50% - 10px);
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
 }
 
 .marker {

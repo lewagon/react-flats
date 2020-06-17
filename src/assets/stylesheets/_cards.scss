@@ -5,6 +5,10 @@
   background-position: center;
   color: white;
   position: relative;
+  width: calc(50% - 10px);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
   &.active {
     border: 10px solid red;
   }

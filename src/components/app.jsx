@@ -1,46 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-import flats from '../../data/flats';
+import flatsList from '../data/flats';
 import FlatList from './flat_list';
 import Marker from './marker';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedFlat: flats[0],
-      flats
-    };
-  }
+export default function App() {
+  const [ flats, setFlats ] = useState(flatsList);
+  const [ selectedFlat, setSelectedFlat ] = useState(flats[0]);
 
-  center() {
+  function center() {
     return {
-      lat: this.state.selectedFlat.lat,
-      lng: this.state.selectedFlat.lng
+      lat: selectedFlat.lat,
+      lng: selectedFlat.lng
     };
   }
 
-  selectFlat = (index) => {
-    this.setState({ selectedFlat: flats[index] });
-  }
+  const selectFlat = index => setSelectedFlat(flats[index]);
 
-  render() {
-    return (
-      <div>
-        <FlatList
-          flats={this.state.flats}
-          selectedFlat={this.state.selectedFlat}
-          selectFlat={this.selectFlat}
-        />
-        <div className="map-container">
-          <GoogleMapReact defaultCenter={this.center()} defaultZoom={12}>
-            <Marker lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng} />
-          </GoogleMapReact>
-        </div>
+  const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API ? {key: process.env.REACT_APP_GOOGLE_MAPS_API} : null
+  return (
+    <div className="container">
+      <FlatList
+        flats={flats}
+        selectedFlat={selectedFlat}
+        selectFlat={selectFlat}
+      />
+      <div className="map-container">
+        <GoogleMapReact 
+          bootstrapURLKeys={API_KEY} 
+          defaultCenter={center()} 
+          defaultZoom={12}
+        >
+          <Marker lat={selectedFlat.lat} lng={selectedFlat.lng} />
+        </GoogleMapReact>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default App;
